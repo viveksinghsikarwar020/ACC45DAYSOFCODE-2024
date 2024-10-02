@@ -1,0 +1,23 @@
+include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int A, B, C;
+        cin >> A >> B >> C;
+
+   
+        int emptyBottles = (A == 0) + (B == 0) + (C == 0);
+
+        if (emptyBottles >= 2) {
+            cout << "Water filling time" << endl;
+        } else {
+            cout << "Not now" << endl;
+        }
+    }
+
+    return 0;
+}
