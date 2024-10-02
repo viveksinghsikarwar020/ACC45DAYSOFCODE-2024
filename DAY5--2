@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int T;  
+    cin >> T;
+
+    while (T--) {
+        int D, E, F;
+        cin >> D >> E >> F;  
+        if (D > 50) {
+            cout << "A" << endl;
+        } else if (E > 50) {
+            cout << "B" << endl;
+        } else if (F > 50) {
+            cout << "C" << endl;
+        } else {
+            cout << "NOTA" << endl; 
+        }
+    }
+
+     return 0;
+}
