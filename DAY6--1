@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;  
+
+    while (T--) {
+        int X, Y;
+        cin >> X >> Y; 
+        
+        int pointsAthenB = (500 - 2 * X) + (1000 - 4 * (X + Y));
+        
+    
+        int pointsBthenA = (1000 - 4 * Y) + (500 - 2 * (X + Y));
+
+
+        cout << max(pointsAthenB, pointsBthenA) << endl;
+    }
+
+    return 0;
+}
