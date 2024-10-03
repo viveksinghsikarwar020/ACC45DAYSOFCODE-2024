@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;  
+
+    while (T--) {
+        int N, X;
+        cin >> N >> X;
+
+        vector<int> A(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i]; 
+        }
+
+        int currentPeople = X;
+        int maxPeople = X;
+
+    
+        for (int i = 0; i < N; ++i) {
+            currentPeople += A[i];  
+            if (currentPeople > maxPeople) {
+                maxPeople = currentPeople;  
+            }
+        }
+
+        cout << maxPeople << endl;
+    }
+
+    return 0;
+}
