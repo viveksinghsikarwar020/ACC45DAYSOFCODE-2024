@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;  
+
+    while (x--) {
+        int N, K;
+        cin >> N >> K;  
+        
+        vector<int> withdrawals(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> withdrawals[i];  
+        }
+
+        string result = "";  
+        
+
+        for (int i = 0; i < N; ++i) {
+            if (K >= withdrawals[i]) {
+                K -= withdrawals[i]; 
+                result += '1';
+            } else {
+                result += '0';  
+            }
+        }
+
+        cout << result << endl;  
+    }
+
+    return 0;
+}
