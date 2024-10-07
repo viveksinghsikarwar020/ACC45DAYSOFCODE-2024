@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int x;  
+    cin >> x;
+
+    while (x--) {
+        int N, A;
+        cin >> N >> A;  
+        int uninfected = N - A;
+
+        cout << min(A, uninfected) << endl;
+    }
+
+    return 0;
+}
