@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int a;
+    cin >> a;  
+
+    while (a--) {
+        int X, Y;
+        cin >> X >> Y;  
+
+        int distance = abs(X - Y);  
+        cout << distance << endl;  
+    }
+
+    return 0;
+}
