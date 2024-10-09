@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int a; 
+    cin >> a;
+
+    while (a--) {
+        int x, y;
+        cin >>  x>> y;
+        int flips = min(y, x - y);
+
+        cout << flips << endl;
+    }
+
+    return 0;
+}
