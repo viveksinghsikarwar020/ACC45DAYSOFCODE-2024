@@ -1,0 +1,28 @@
+#include <iostream>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int x; 
+    cin >> x;
+    
+    while (x--) {
+        int n; 
+        cin >> n;
+        
+        unordered_map<int, int> frequency; 
+        int max_frequency = 0; 
+        for (int i = 0; i < n; i++) {
+            int card;
+            cin >> card;
+            frequency[card]++;
+            max_frequency = max(max_frequency, frequency[card]);
+        }
+        
+        int min_moves = n - max_frequency;
+        cout << min_moves << endl;
+    }
+    
+    return 0;
+}
