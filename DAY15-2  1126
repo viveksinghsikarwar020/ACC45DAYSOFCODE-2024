@@ -1,0 +1,16 @@
+from collections import Counter
+
+def can_split_animals_evenly(N, animals):
+    animal_count = Counter(animals)
+    
+    for count in animal_count.values():
+        if count % 2 != 0:
+            return "NO"
+    return "YES"
+
+X = int(input())
+
+for _ in range(X):
+    N = int(input())
+
+    animals = list(map(int, input().split()))
