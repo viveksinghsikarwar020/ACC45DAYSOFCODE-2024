@@ -1,0 +1,16 @@
+
+def min_bags_needed(A, B, C):
+   
+    candies_per_bag = B * C
+    
+    bags_needed = (A + candies_per_bag - 1) // candies_per_bag
+    
+    return bags_needed
+
+X = int(input())
+
+for _ in range(X):
+    A, B, C = map(int, input().split())
+    
+  
+    print(min_bags_needed(A, B, C))
