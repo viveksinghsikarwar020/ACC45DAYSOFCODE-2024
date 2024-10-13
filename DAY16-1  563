@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int X;  
+    cin >> X; 
+    
+    while (X--) {
+        int A; 
+        cin >> A;
+        
+        int notebooks = A * 10;
+     
+        cout << notebooks << endl;
+    }
+    
+    return 0;
+}
