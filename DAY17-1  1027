@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int A;
+    cin >> A;
+    while (A--) {
+        int X, Y;
+        cin >> X >> Y;
+        if (X < Y) {
+            cout << "BIKE" << endl;
+        } else if (X > Y) {
+            cout << "CAR" << endl;
+        } else {
+            cout << "SAME" << endl;
+        }
+    }
+    return 0;
+}
