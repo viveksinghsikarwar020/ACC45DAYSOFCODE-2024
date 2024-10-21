@@ -1,0 +1,41 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+void groupAssignment(int x) {
+    while (x--) {
+        int a;
+        cin >> a;
+        unordered_map<int, int> groupCount;
+        int P[a];
+
+        for (int i = 0; i < a; ++i) {
+            cin >> P[i];
+            groupCount[P[i]]++; 
+        }
+
+        bool possible = true;
+        for (const auto& pair : groupCount) {
+            int groupSize = pair.first;
+            int count = pair.second;
+
+            if (count % groupSize != 0) {
+                possible = false;
+                break;
+            }
+        }
+
+        if (possible) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+}
+
+int main() {
+    int x;
+    cin >> x;  
+    groupAssignment(x);
+    return 0;
+}
