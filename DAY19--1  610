@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+void testScore(int T) {
+    while (T--) {
+        int N, X, Y;
+        cin >> N >> X >> Y;
+
+        // Check if Y is achievable
+        if (Y % X == 0 && Y <= N * X) {
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+}
+
+int main() {
+    int T;
+    cin >> T;  // Number of test cases
+    testScore(T);
+    return 0;
+}
