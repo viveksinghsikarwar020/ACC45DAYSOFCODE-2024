@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a;  
+    cin >> a;
+    
+    while (a--) {
+        int X, Y;
+        cin >> X >> Y;
+        
+        if (X <= Y) {
+            
+            cout << 0 << endl;
+        } else {
+           
+            int points_needed_from_wins = X - Y;
+            int min_wins = (points_needed_from_wins + 1) / 2;  // Ceiling of (X - Y) / 2
+            cout << min_wins << endl;
+        }
+    }
+    
+    return 0;
+}
