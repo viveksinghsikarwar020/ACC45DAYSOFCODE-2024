@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a;  // Number of test cases
+    cin >> a;
+    
+    while (a--) {
+        int H, X, Y;
+        cin >> H >> X >> Y;
+        
+        if (Y >= H) {
+          
+            cout << 1 << endl;
+        } else {
+            
+            int remaining_health = H - Y;
+            int attacks_after_special = (remaining_health + X - 1) / X;  
+            int attacks_only_normal = (H + X - 1) / X;  
+            
+            
+            cout << min(attacks_only_normal, attacks_after_special + 1) << endl;
+        }
+    }
+    
+  return 0;
+}
