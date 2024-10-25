@@ -1,0 +1,34 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;  
+    cin >> T;
+    
+    while (T--) {
+        int N;  
+        cin >> N;
+        
+        vector<int> A(N);  
+        unordered_map<int, int> freq;  
+        
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+            freq[A[i]]++; 
+        }
+        
+       
+        int max_freq = 0;
+        for (const auto& entry : freq) {
+            max_freq = max(max_freq, entry.second);
+        }
+        
+        int min_operations = N - max_freq;
+        cout << min_operations << endl;
+    }
+    
+    return 0;
+}
