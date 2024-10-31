@@ -1,0 +1,35 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    if (n <= 3) return true; 
+    if (n % 2 == 0 || n % 3 == 0) return false;
+
+    // Only check for factors up to sqrt(n)
+    for (int i = 5; i * i <= n; i += 6) {
+        if (n % i == 0 || n % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    int x;
+    cin >> x;
+    while (x--) {
+        int y;
+        cin >> y;
+        if (isPrime(y)) {
+            cout << "yes" << endl;
+        } else {
+            cout << "no" << endl;
+        }
+    }
+    return 0;
+}
+
+
+
+
+
