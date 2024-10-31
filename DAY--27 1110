@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int x;
+    cin >> x;
+    
+    while (x--) {
+        int y;
+        long long K;
+        cin >> y >> K;
+        
+        vector<long long> distances(y);
+        for (int i = 0; i < y; i++) {
+            cin >> distances[i];
+        }
+        
+        string result = "";
+        for (int i = 0; i < y; i++) {
+            if (distances[i] % K == 0) {
+                result += '1';
+            } else {
+                result += '0';
+            }
+        }
+        
+        cout << result << endl;
+    }
+    
+    return 0;
+}
