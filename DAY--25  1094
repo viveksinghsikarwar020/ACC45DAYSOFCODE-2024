@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int T;  // Number of test cases
+    cin >> T;
+    
+    while (T--) {
+        int N;  // Number of times Chef plucks a string
+        cin >> N;
+        
+        vector<int> strings(N);
+        for (int i = 0; i < N; i++) {
+            cin >> strings[i];
+        }
+        
+        int total_skips = 0;
+        for (int i = 0; i < N - 1; i++) {
+            total_skips += abs(strings[i + 1] - strings[i]) - 1;
+        }
+        
+        cout << total_skips << endl;
+    }
+    
+    return 0;
+}
