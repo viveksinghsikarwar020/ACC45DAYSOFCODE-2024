@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int minOperationsToPermutation(int N, vector<int>& A) {
+    sort(A.begin(), A.end());
+    int operations = 0;
+    int target = 1;
+    
+    for (int i = 0; i < N; ++i) {
+        if (A[i] < target) {
+           
+            continue;
+        } else if (A[i] > target) {
+        
+            operations += (A[i] - target);
+            ++target;
+        } else {
+            
+            ++target;
+        }
+    }
+    
+    return (target > N) ? operations : -1;
+}
+
+int main() {
+    int T;
+    cin >> T; 
+    while (T--) {
+        int N;
+        cin >> N;
+        vector<int> A(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> A[i];
+        }
+        cout << minOperationsToPermutation(N, A) << endl;
+    }
+    return 0;
+}
