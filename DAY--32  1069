@@ -1,0 +1,33 @@
+#include <iostream>
+#include <vector>
+#include <cmath>
+using namespace std;
+
+
+void segmentedSieve(long long m, long long n) {
+    vector<bool> isPrime(n - m + 1, true); 
+    if (m == 1) isPrime[0] = false;      
+
+    for (long long i = 2; i * i <= n; ++i) {
+        long long start = max(i * i, (m + i - 1) / i * i); // 
+        for (long long j = start; j <= n; j += i) {
+            isPrime[j - m] = false;
+        }
+    }
+
+    for (long long i = 0; i <= n - m; ++i) {
+        if (isPrime[i]) cout << (m + i) << "\n";
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        long long m, n;
+        cin >> m >> n;
+        segmentedSieve(m, n);
+        if (t > 0) cout << "\n";
+    }
+    return 0;
+}
