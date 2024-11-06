@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T; 
+    
+    while (T--) {
+        int N;
+        cin >> N;  
+        
+        vector<int> recommendations(11, 0);  
+        for (int i = 0; i < N; i++) {
+            int recommendation;
+            cin >> recommendation;
+            recommendations[recommendation]++;
+        }
+        
+        int maxRecommendations = 0;
+        int bestLaptop = 0;
+        bool isConfused = false;
+        
+      
+        for (int i = 1; i <= 10; i++) {
+            if (recommendations[i] > maxRecommendations) {
+                maxRecommendations = recommendations[i];
+                bestLaptop = i;
+                isConfused = false;
+            } else if (recommendations[i] == maxRecommendations) {
+                isConfused = true;
+            }
+        }
+        
+    
+        if (isConfused) {
+            cout << "CONFUSED" << endl;
+        } else {
+            cout << bestLaptop << endl;
+        }
+    }
+    
+    return 0;
+}
