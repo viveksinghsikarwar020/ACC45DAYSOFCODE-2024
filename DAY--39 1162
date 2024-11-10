@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int minimum_time_to_kill_enemies(int n, int x, vector<int>& health) {
+    int single_target_time = 0;
+    for (int h : health) {
+        single_target_time += (h + x - 1) / x; 
+    }
+    
+    int multi_target_time = *max_element(health.begin(), health.end());
+  
+    return min(single_target_time, multi_target_time);
+}
+
+int main() {
+    int T;
+    cin >> T;
+    vector<int> results(T);
+
+    for (int t = 0; t < T; ++t) {
+        int n, x;
+        cin >> n >> x;
+        vector<int> health(n);
+        
+        for (int i = 0; i < n; ++i) {
+            cin >> health[i];
+        }
+        
+        results[t] = minimum_time_to_kill_enemies(n, x, health);
+    }
+
+    for (int result : results) {
+        cout << result << endl;
+    }
+
+    return 0;
+}
