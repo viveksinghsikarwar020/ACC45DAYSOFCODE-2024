@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N, X;
+        cin >> N >> X;
+
+        vector<int> A(N), B(N);
+        for (int i = 0; i < N; i++) cin >> A[i];
+        for (int i = 0; i < N; i++) cin >> B[i];
+
+        int current_wins = 0;
+        vector<int> needed_votes;
+
+        for (int i = 0; i < N; i++) {
+            if (A[i] > B[i]) {
+                current_wins++;
+            } else {
+                needed_votes.push_back(B[i] - A[i] + 1);
+            }
+        }
+
+        int required_wins = (N / 2 + 1) - current_wins;
+
+        if (required_wins <= 0) {
+            cout << "YES" << endl;
+            continue;
+        }
+
+        sort(needed_votes.begin(), needed_votes.end());
+
+        bool can_win = false;
+        for (int i = 0; i < required_wins && i < needed_votes.size(); i++) {
+            X -= needed_votes[i];
+            if (X < 0) {
+                can_win = false;
+                break;
+            }
+            can_win = true;
+        }
+
+        cout << (can_win ? "YES" : "NO") << endl;
+    }
+
+    return 0;
+}
