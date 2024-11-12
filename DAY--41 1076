@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T; 
+    while (T--) {
+        long long N, X, Y;
+        cin >> N >> X >> Y;
+        
+        long long vertical_attack = N - 1;
+        long long horizontal_attack = N - 1;
+
+       
+        long long top_left_diagonal = min(X - 1, Y - 1);
+        long long top_right_diagonal = min(X - 1, N - Y);
+        long long bottom_left_diagonal = min(N - X, Y - 1);
+        long long bottom_right_diagonal = min(N - X, N - Y);
+
+        long long diagonal_attack = top_left_diagonal + top_right_diagonal + bottom_left_diagonal + bottom_right_diagonal;
+
+      
+        long long total_attack = vertical_attack + horizontal_attack + diagonal_attack;
+
+        cout << total_attack << endl;
+    }
+    
+    return 0;
+}
