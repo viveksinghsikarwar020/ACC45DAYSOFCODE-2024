@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int X, Y;
+        cin >> X >> Y;
+        
+       
+        int waterPerPerson = 2 * Y;
+        
+        int maxPeople = X / waterPerPerson;
+        
+        cout << maxPeople << endl;
+    }
+    
+    return 0;
+}
