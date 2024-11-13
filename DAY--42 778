@@ -1,0 +1,18 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T; // Number of test cases
+    while (T--) {
+        int A, B, C;
+        cin >> A >> B >> C;
+
+        // Calculate total price to be paid after getting the lowest priced item for free
+        int totalPrice = A + B + C - min({A, B, C});
+        cout << totalPrice << endl;
+    }
+    
+    return 0;
+}
