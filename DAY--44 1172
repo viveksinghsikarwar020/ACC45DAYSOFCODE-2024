@@ -1,0 +1,57 @@
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+using namespace std;
+
+vector<int> maxPeopleInOffice(int T, vector<pair<int, vector<int>>>& testCases) {
+    vector<int> results;
+
+    for (int t = 0; t < T; t++) {
+        int N = testCases[t].first;
+        vector<int>& swipes = testCases[t].second;
+
+        unordered_set<int> activeSet;
+        int maxPeople = 0;
+
+        for (int id : swipes) {
+            if (activeSet.count(id)) {
+                activeSet.erase(id); 
+            } else {
+                activeSet.insert(id); 
+            }
+            
+            maxPeople = max(maxPeople, (int)activeSet.size());
+        }
+
+        results.push_back(maxPeople);
+    }
+
+    return results;
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    vector<pair<int, vector<int>>> testCases(T);
+
+    for (int t = 0; t < T; t++) {
+        int N;
+        cin >> N;
+        vector<int> swipes(N);
+
+        for (int i = 0; i < N; i++) {
+            cin >> swipes[i];
+        }
+
+        testCases[t] = {N, swipes};
+    }
+
+    vector<int> results = maxPeopleInOffice(T, testCases);
+
+    for (int res : results) {
+        cout << res << endl;
+    }
+
+    return 0;
+}
