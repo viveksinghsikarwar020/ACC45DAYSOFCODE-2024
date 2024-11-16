@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+long long calculateCoins(long long N) {
+    return (N / 5) * 4 + (N % 5);
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        long long N;
+        cin >> N;
+        cout << calculateCoins(N) << endl;
+    }
+
+    return 0;
+}
